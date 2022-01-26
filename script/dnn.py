@@ -8,7 +8,7 @@ from numpy.random import default_rng
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from torch.optim import Adam, SGD
+from torch.optim import SGD
 from torch.utils.data import DataLoader, Subset
 from torchvision.datasets import MNIST
 from torchvision.transforms import ToTensor, Normalize, Compose
@@ -32,7 +32,6 @@ class Trainer:
         self.device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
         self.num_epochs = cfg['num_epochs']
         self.model = model.to(self.device)
-        #self.optimizer = Adam(self.model.parameters(), lr=cfg['lr'], betas=(cfg['beta1'], cfg['beta2']))
         self.optimizer = SGD(self.model.parameters(), lr=cfg['lr'], momentum=0.9, nesterov=True, weight_decay=1e-4)
         batch_size = cfg['batch_size']
         self.trainloader = DataLoader(trainset, batch_size=batch_size, 
@@ -89,13 +88,13 @@ def main():
     parser.add_argument('--num_epochs', type=int, default=20)
     parser.add_argument('--batch_size', type=int, default=256)
     parser.add_argument('--lr', type=float, default=0.001)
-    parser.add_argument('--beta1', type=float, default=0.9)
-    parser.add_argument('--beta2', type=float, default=0.999)
+    parser.add_argument('--momentum', type=float, default=0.9)
+    parser.add_argument('--weight_decay', type=float, default=1e-4)
     parser.add_argument('--seed', type=int, default=42)
     parser.add_argument('--index', type=str)
     parser.add_argument('--mode', type=str)
     parser.add_argument('--num_samples', type=int, default=20953)
-    parser.add_argument('--repeat', action='store_true')
+    parser.add_argument('--repeat', action='store_false')
     args = parser.parse_args()
 
     initSeed(args.seed)
@@ -104,8 +103,8 @@ def main():
         'num_epochs': args.num_epochs,
         'batch_size': args.batch_size,
         'lr': args.lr,
-        'beta1':args.beta1,
-        'beta2':args.beta2
+        'momentum':args.momentum,
+        'weight_decay': args.weight_decay
     }
     print('config:', cfg)
 
@@ -123,7 +122,7 @@ def main():
         else:
             raise ValueError
         if args.repeat:
-            index_condensed = repeatIndex(index_condensed, 60000)
+            index_condensed = repeatIndex(index_condensed, len(trainset))
         trainset = Subset(trainset, index_condensed)
     elif args.mode == 'random':
         print('use random subset')
@@ -132,19 +131,22 @@ def main():
         rng.shuffle(index_random)
         index_random = index_random[:args.num_samples]
         if args.repeat:
-            index_random = repeatIndex(index_random, 60000)
+            index_random = repeatIndex(index_random, len(trainset))
         trainset = Subset(trainset, index_random)
     else:
         print('use all dataset')
     
-    print(f'number of samples:{len(trainset)}')
+    print(f'num_samples:{len(trainset)}')
 
     model = nn.Sequential(
         nn.Flatten(),
-        nn.Linear(784, 1024),
-        nn.Linear(1024, 1024),
-        nn.Linear(1024, 1024),
-        nn.Linear(1024, 10)
+        nn.Linear(784, 512),
+        nn.ReLU(),
+        nn.Linear(512, 512),
+        nn.ReLU(),
+        nn.Linear(512, 512),
+        nn.ReLU(),
+        nn.Linear(512, 10)
     )
 
     print('start training')
