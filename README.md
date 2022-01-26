@@ -11,9 +11,9 @@ The test accuracy when training DNN has 4 fully connected layers on each dataset
 
 | Mode          | Number of Samples |   Test Acc   |
 |---------------|:-----------------:|:------------:|
-| Full          |       60000       |     92.2     |
-| Condensed     |       20953       |     92.0     |
-| Random        |       20953       |     91.1     |
+| Full          |       60000       |     Nan     |
+| Condensed     |       20953       |     Nan     |
+| Random        |       20953       |     Nan     |
 
 ### k-Nearest-Neighber Classification
 coming soon...
