@@ -32,3 +32,8 @@ The number of epochs is 100 but the number of iterations is kept the same.
 | All data      |       60000       |     96.3     |
 | Condensed     |       20953       |     95.7     |
 | Random        |       20953       |     95.0     |
+
+Note that it is needed Pytorch for dnn.{py, ipynb} and JAX for kNN.{py, ipynb}. It is recommended to use Colab to run the codes or notebooks.
+
+## Reference
+under construction...
