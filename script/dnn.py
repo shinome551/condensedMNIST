@@ -85,7 +85,7 @@ class Trainer:
 
 def main():
     parser=argparse.ArgumentParser()
-    parser.add_argument('--num_epochs', type=int, default=20)
+    parser.add_argument('--num_epochs', type=int, default=50)
     parser.add_argument('--batch_size', type=int, default=256)
     parser.add_argument('--lr', type=float, default=0.001)
     parser.add_argument('--momentum', type=float, default=0.9)
@@ -140,13 +140,13 @@ def main():
 
     model = nn.Sequential(
         nn.Flatten(),
-        nn.Linear(784, 512),
+        nn.Linear(784, 1024),
         nn.ReLU(),
-        nn.Linear(512, 512),
+        nn.Linear(1024, 1024),
         nn.ReLU(),
-        nn.Linear(512, 512),
+        nn.Linear(1024, 1024),
         nn.ReLU(),
-        nn.Linear(512, 10)
+        nn.Linear(1024, 10)
     )
 
     print('start training')
