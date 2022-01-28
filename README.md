@@ -20,14 +20,15 @@ The number of epochs is 100 but the number of iterations is kept the same.
 
 | Mode          | Number of Samples |  Test Acc[%] |
 |---------------|:-----------------:|:------------:|
-| All           |       60000       |     97.8     |
+| All data      |       60000       |     97.8     |
 | Condensed     |       20953       |     98.0     |
 | Random        |       20953       |     96.7     |
 
 ### k-Nearest-Neighbor Classification(kNN.{py, ipynb})
 - k=1, L2 distance
+
 | Mode          | Number of Samples |  Test Acc[%] |
 |---------------|:-----------------:|:------------:|
-| All           |       60000       |     96.3     |
+| All data      |       60000       |     96.3     |
 | Condensed     |       20953       |     95.7     |
 | Random        |       20953       |     95.0     |
