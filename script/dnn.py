@@ -83,18 +83,18 @@ class Trainer:
             print(f'epoch:{epoch+1}, trainloss:{trainloss:.3f}, testacc:{testacc:.1f}%')
 
 
-def main():
+def main(args):
     parser=argparse.ArgumentParser()
-    parser.add_argument('--num_epochs', type=int, default=50)
+    parser.add_argument('--num_epochs', type=int, default=100)
     parser.add_argument('--batch_size', type=int, default=256)
     parser.add_argument('--lr', type=float, default=0.001)
     parser.add_argument('--momentum', type=float, default=0.9)
     parser.add_argument('--weight_decay', type=float, default=1e-4)
     parser.add_argument('--seed', type=int, default=42)
-    parser.add_argument('--index', type=str)
-    parser.add_argument('--mode', type=str)
-    parser.add_argument('--num_samples', type=int, default=20953)
-    parser.add_argument('--repeat', action='store_false')
+    parser.add_argument('--index', type=str, help='use this option in \'condensed\' mode only')
+    parser.add_argument('--mode', type=str, help='\'full\', \'condensed\', or \'random\'')
+    parser.add_argument('--num_samples', type=int, default=20953, help='use this option in \'random\' mode only')
+    parser.add_argument('--repeat', action='store_true', help='repeat the index to align the apparent number of samples with the all data set. If this option is flaged, the number of iterations is kept the same.')
     args = parser.parse_args()
 
     initSeed(args.seed)
