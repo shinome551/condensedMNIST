@@ -15,7 +15,7 @@ When creating a RNG for a dataset, take the following steps:
 After creation, remove the examples not connected to ones belonging to different classes. Thereby, we get the representative subset for decision boundaries. Such data reduction is called "condensing", "editing", etc.
 
 ## Results
-### DNN Classification [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](http://colab.research.google.com/github/shinome551/blob/main/condensedMNIST/notebook/dnn.ipynb)
+### DNN Classification [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](http://colab.research.google.com/github/shinome551/condensedMNIST/blob/main/notebook/dnn.ipynb)
 The test accuracy for each dataset when training DNN with 4 fully connected layers and ReLU. 
 
 The number of epochs is 100 but the number of iterations is kept the same.
