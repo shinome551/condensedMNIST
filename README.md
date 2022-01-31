@@ -7,8 +7,8 @@ MNIST trainset can be reduced from 60000 to 20953 by using a Relative Neighborho
 RNG is one of the neighbor graphs. It's represent adjacency between nodes as their edges. 
 
 When creating a RNG for a dataset, take the following steps:
-1. For a pair of examples, draw two hypersphere whose radius is the distance between the pairs.
-2. If no other examples exist in the overlapping region of the two hyperspheres, connect a edge.
+1. For each pair of examples, draw two hyperspheres centered on each one of the pair, with the radius being the distance between the pair(as shown in the image below).
+2. If no other examples exist in the overlapping region of the two hyperspheres, connect an edge between the pair.
 
 <div align="center">
     <img src="img/figure1.png" width="40%">
