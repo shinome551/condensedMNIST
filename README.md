@@ -1,5 +1,4 @@
 # condensedMNIST
-
 MNIST trainset can be reduced from 60000 to 20953 by using a Relative Neighborhood Graph(RNG). Classification results using the trainset in DNN and kNN are no different from the all trainset and better than random sampling.
 
 ## Method
@@ -16,7 +15,7 @@ When creating a RNG for a dataset, take the following steps:
 After creation, remove the examples not connected to ones belonging to different classes. Thereby, we get the representative subset for decision boundaries. Such data reduction is called "condensing", "editing", etc.
 
 ## Results
-### DNN Classification(dnn.{py, ipynb})
+### DNN Classification[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](http://colab.research.google.com/github/shinome551/blob/main/dnn.ipynb)
 The test accuracy for each dataset when training DNN with 4 fully connected layers and ReLU. 
 
 The number of epochs is 100 but the number of iterations is kept the same.
@@ -27,7 +26,7 @@ The number of epochs is 100 but the number of iterations is kept the same.
 | Condensed     |       20953       |     98.0     |
 | Random        |       20953       |     96.7     |
 
-### k-Nearest-Neighbor Classification(kNN.{py, ipynb})
+### k-Nearest-Neighbor Classification[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](http://colab.research.google.com/github/shinome551/blob/main/kNN.ipynb)
 - k=1, L2 distance
 
 | Mode          | Number of Samples |  Test Acc[%] |
