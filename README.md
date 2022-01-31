@@ -10,7 +10,7 @@ When creating a RNG for a dataset, take the following steps:
 1. For a pair of examples, draw two hypersphere whose radius is the distance between the pairs.
 2. If no other examples exist in the overlapping region of the two hyperspheres, connect a edge.
 
-![figure1](img/figure1.png)
+<img src="img/figure1.png" width="50%">
 
 After creation, remove the examples not connected to ones belonging to different classes. Thereby, we get the representative subset for decision boundaries. Such data reduction is called "condensing", "editing", etc.
 
