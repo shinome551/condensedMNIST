@@ -1,6 +1,5 @@
 # condensedMNIST
 
-## Abstract
 MNIST trainset can be reduced from 60000 to 20953 by using a Relative Neighborhood Graph(RNG). Classification results using the trainset in DNN and kNN are no different from the all trainset and better than random sampling.
 
 ## Method
