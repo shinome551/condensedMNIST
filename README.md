@@ -4,7 +4,7 @@ MNIST trainset can be reduced from 60000 to 20953 by using a Relative Neighborho
 ## Method
 RNG is one of the neighbor graphs. It's represent adjacency between nodes as their edges. 
 
-When creating a RNG for a dataset, take the following steps:
+When make a RNG for a dataset, take the following steps:
 1. For each pair of examples, draw two hyperspheres centered on each one of the pair, with a radius being the Euclidean distance between the pair(as shown in the image below).
 2. If no other examples exist in the overlapping region of the two hyperspheres, connect an edge between the pair.
 
@@ -12,7 +12,7 @@ When creating a RNG for a dataset, take the following steps:
     <img src="img/figure1.png" width="40%">
 </div>
 
-After creation, remove the examples not connected to ones belonging to different classes. Thereby, we get the representative subset for decision boundaries. Such data reduction is called "condensing", "editing", "prototype selection", etc.
+After making, remove the examples not connected to ones belonging to different classes. Thereby, we get the representative subset for decision boundaries. Such data reduction is called "condensing", "editing", "prototype selection", etc.
 
 ## Results
 ### DNN Classification [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](http://colab.research.google.com/github/shinome551/condensedMNIST/blob/main/notebook/dnn.ipynb)
