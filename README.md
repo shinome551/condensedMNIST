@@ -1,5 +1,5 @@
 # condensedMNIST
-By using a Relative Neighborhood Graph(RNG), MNIST trainset can be reduced from 60000 to 20953. Classification results using the trainset in DNN and kNN are no different from the all trainset and better than random sampling.
+By using a Relative Neighborhood Graph (RNG), MNIST trainset can be reduced from 60000 to 20953. Classification results using the trainset in DNN and kNN are no different from the all trainset and better than random sampling.
 
 ## Method
 RNG is one of the neighbor graphs. It's represent adjacency between nodes as their edges. 
