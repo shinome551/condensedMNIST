@@ -12,10 +12,8 @@ from jax import jit, vmap
 def main():
     parser=argparse.ArgumentParser()
     parser.add_argument('--seed', type=int, default=42)
-    parser.add_argument('--mode', type=str, help='Use this option in \'condensed\' mode only.')
     parser.add_argument('--index', type=str)
-    parser.add_argument('--num_samples', type=int, default=20953, help='Choice \'full\', \'condensed\', or \'random\'')
-
+    parser.add_argument('--mode', type=str, help='Choice \'full\', \'condensed\', or \'random\'')
     
     args = parser.parse_args()
 
@@ -39,7 +37,7 @@ def main():
         rng = np.random.default_rng(args.seed)
         index_random = np.arange(len(trainset))
         rng.shuffle(index_random)
-        index_random = index_random[:len(args.num_samples)]
+        index_random = index_random[:20953]
         train_data = train_data[index_random]
         train_targets = train_targets[index_random]
     else:
